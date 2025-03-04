@@ -45,6 +45,23 @@ enemy_manager.create_enemies_grid()
 enemy_bullet_manager = EnemyBulletManager(enemies_list)
 enemies_bullets_list = enemy_bullet_manager.enemy_bullet_list
 
+def game_over():
+    player.color('black')
+    for bullet in player_bullets_list:
+        bullet.color('black')
+    for bullet in enemies_bullets_list:
+        bullet.color('black')
+    for enemy in enemies_list:
+        enemy.color('black')
+    for barrier in barrier_list:
+        barrier.color('black')
+    down_separator.color('black')
+    up_separator.color('black')
+    lives_counter.clear()
+    window.update()
+    print('aloha')
+    score_counter.game_over()
+
 
 loop_counter = 1
 while lives_counter.lives > 0 and len(enemies_list) > 0:
@@ -130,9 +147,6 @@ while lives_counter.lives > 0 and len(enemies_list) > 0:
     #         enemies_list.remove(enemy)
     loop_counter += 1
 
-lives_counter.clear()
-score_counter.game_over()
-gameover=GameOver()
-
-
+game_over()
+gameover = GameOver()
 window.exitonclick()
