@@ -16,7 +16,7 @@ class Enemy_manager(Turtle):
         new_enemy.shape('circle')
         new_enemy.color('yellow')
         new_enemy.shapesize(0.8)
-        new_enemy.goto(random.randint(-int(WINDOW_WIDTH/2+30),int(WINDOW_WIDTH/2-30)), WINDOW_HEIGHT/2*0.75)
+        new_enemy.goto(random.randint(-int(WINDOW_WIDTH/2+40),int(WINDOW_WIDTH/2-40)), WINDOW_HEIGHT/2*0.75)
         self.enemies_list.append(new_enemy)
 
     def enemies_move(self):

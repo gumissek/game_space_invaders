@@ -26,7 +26,7 @@ class Bullet(Turtle):
         super().__init__()
         self.bullets_list = []
         self.bullets_speed = 0.02
-        self.bullet_frequency = 25
+        self.bullet_frequency = 30
 
     def create_bullet(self, x_cor, y_cor):
         new_bullet = Turtle()
@@ -34,11 +34,11 @@ class Bullet(Turtle):
         new_bullet.color('white')
         new_bullet.shape('square')
         new_bullet.shapesize(0.2, 0.1)
-        new_bullet.goto(x_cor, y_cor)
+        new_bullet.goto(x_cor, y_cor+10)
         self.bullets_list.append(new_bullet)
 
     def bullets_move(self):
-        print(len(self.bullets_list))
+        # print(len(self.bullets_list))
         for bullet in self.bullets_list:
             bullet.goto(bullet.xcor(), bullet.ycor() + 5)
 
