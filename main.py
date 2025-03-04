@@ -1,3 +1,4 @@
+# author : https://github.com/gumissek/game_space_invaders
 import time
 from turtle import Screen
 from enemy import EnemyManager, EnemyBulletManager
