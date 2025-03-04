@@ -21,7 +21,7 @@ class Player(Turtle):
             self.goto(self.xcor() + 10, self.ycor())
 
 
-class Bullet(Turtle):
+class BulletManager(Turtle):
     def __init__(self):
         super().__init__()
         self.bullets_list = []
