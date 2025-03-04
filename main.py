@@ -40,6 +40,7 @@ bullet_list = bullet_manager.bullets_list
 # enemies
 enemy_manager = Enemy_manager()
 enemies_list = enemy_manager.enemies_list
+enemy_manager.create_enemies_grid()
 
 loop_counter = 0
 while lives_counter.lives > 0:
@@ -48,20 +49,21 @@ while lives_counter.lives > 0:
     time.sleep(bullet_manager.bullets_speed)
     bullet_manager.bullets_move()
     enemy_manager.enemies_move()
-    # czestotliwosc pojawiania sie pociskow i wrogow
-    if loop_counter % enemy_manager.enemy_frequency == 0:
-        enemy_manager.create_enemy()
 
+    #czestotliwosc strzelania
     if loop_counter % bullet_manager.bullet_frequency == 0:
         bullet_manager.create_bullet(player.xcor(), player.ycor())
+
     # # zmiana ilosci pociskow
     # if score_counter.score % 10 == 0:
     #     bullet_manager.bullet_increase_freq()
 
+
+
     # sprawdzanie czy pocisk trafil
     for enemy in enemies_list:
         for bullet in bullet_list:
-            if bullet.distance(enemy) < 10:
+            if bullet.distance(enemy) < 12:
                 enemy.color('green')
                 bullet.color('green')
                 enemies_list.remove(enemy)
