@@ -34,7 +34,7 @@ class BulletManager(Turtle):
         new_bullet.color('white')
         new_bullet.shape('square')
         new_bullet.shapesize(0.2, 0.1)
-        new_bullet.goto(x_cor, y_cor+10)
+        new_bullet.goto(x_cor, y_cor + 10)
         self.bullets_list.append(new_bullet)
 
     def bullets_move(self):

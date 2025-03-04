@@ -9,7 +9,7 @@ class DownSeparator(Turtle):
         self.penup()
         self.color('white')
         self.sety(-WINDOW_HEIGHT / 2 * 0.8)
-        self.shapesize(0.2, WINDOW_WIDTH)
+        self.shapesize(0.5, WINDOW_WIDTH)
 
 
 class UpSeparator(Turtle):
@@ -19,4 +19,4 @@ class UpSeparator(Turtle):
         self.penup()
         self.color('white')
         self.sety(WINDOW_HEIGHT / 2 * 0.8)
-        self.shapesize(0.2, WINDOW_WIDTH)
+        self.shapesize(0.5, WINDOW_WIDTH)

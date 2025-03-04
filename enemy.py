@@ -1,6 +1,6 @@
 import random
+import time
 from turtle import Turtle
-
 
 from settings import WINDOW_WIDTH, WINDOW_HEIGHT
 import numpy as np
@@ -34,38 +34,44 @@ class EnemyManager(Turtle):
 
             enemy.goto(enemy.xcor() + self.enemy_move, enemy.ycor())
 
+    def enemies_move_down(self):
+        for enemy in self.enemies_list:
+            enemy.goto(enemy.xcor(), enemy.ycor() - 5)
+
     def create_enemies_grid(self):
 
         rows = 4
         row_position = WINDOW_HEIGHT / 2 * 0.65
         enemy_size = 60
-        x_cor_list = np.linspace(-WINDOW_WIDTH / 2 + 100, WINDOW_WIDTH / 2 - 100,
+        space = 100
+        x_cor_list = np.linspace(-WINDOW_WIDTH / 2 + space, WINDOW_WIDTH / 2 - space,
                                  num=int(WINDOW_WIDTH / enemy_size) + 1)
         for row in range(rows):
             for x_cor in x_cor_list:
                 self.create_enemy(x_cor, row_position - row * enemy_size)
 
     def enemy_increase_speed(self):
-        self.enemy_move+=1
+        self.enemy_move += 1
+
 
 class EnemyBulletManager(Turtle):
-    def __init__(self,enemies_list:list):
+    def __init__(self, enemies_list: list):
         super().__init__()
-        self.enemy_bullet_list=[]
-        self.enemies_list=enemies_list
-        self.enemy_bullet_move=-3
-        self.enemy_bullets_frequency=150
+        self.enemy_bullet_list = []
+        self.enemies_list = enemies_list
+        self.enemy_bullet_move = -3
+        self.enemy_bullets_frequency = 150
 
     def create_enemy_bullet(self):
-        random_enemy=random.choice(self.enemies_list)
+        random_enemy = random.choice(self.enemies_list)
         new_bullet = Turtle()
         new_bullet.penup()
         new_bullet.color('yellow')
         new_bullet.shape('square')
         new_bullet.shapesize(0.2, 0.1)
-        new_bullet.goto(random_enemy.xcor(),random_enemy.ycor())
+        new_bullet.goto(random_enemy.xcor(), random_enemy.ycor())
         self.enemy_bullet_list.append(new_bullet)
 
     def enemy_bullets_move(self):
         for bullet in self.enemy_bullet_list:
-            bullet.goto(bullet.xcor(),bullet.ycor()+self.enemy_bullet_move)
+            bullet.goto(bullet.xcor(), bullet.ycor() + self.enemy_bullet_move)
