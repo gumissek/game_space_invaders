@@ -9,7 +9,7 @@ class Player(Turtle):
         self.penup()
         self.setpos(0, -WINDOW_HEIGHT / 2 * 0.73)
         self.color('white')
-        self.shapesize(WINDOW_WIDTH * 0.003)
+        self.shapesize(1.8)
         self.setheading(90)
 
     def player_move_left(self):
@@ -26,7 +26,7 @@ class BulletManager(Turtle):
         super().__init__()
         self.bullets_list = []
         self.bullets_speed = 0.02
-        self.bullet_frequency = 30
+        self.bullet_frequency = 35
 
     def create_bullet(self, x_cor, y_cor):
         new_bullet = Turtle()

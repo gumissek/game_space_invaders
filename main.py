@@ -1,11 +1,3 @@
-# zrobic layout ( wynik, zycia etc) ok
-# zrobic gracza ok
-# zrobic movement gracza prawo lewo ok
-# zrobic strzelanie ( kulka) ok
-# zrobic obiekty ( przeciwnikow ) ok
-# zrobic movement przeciwkonkow zeby szly w dol ok
-# zrobic dodawanie punktow za kazdego zabitego przeciwnika ok
-# jesli sie skoncza przeciwnicy to przejsc na kolejny lvl
 import time
 from turtle import Screen
 from enemy import EnemyManager, EnemyBulletManager
@@ -14,6 +6,7 @@ from layout import DownSeparator, UpSeparator
 from scoreboard import Scoreboard
 from player import Player, BulletManager
 from barrier import BarrierManager
+from gameover import GameOver
 
 # window config
 window = Screen()
@@ -50,6 +43,7 @@ enemy_manager.create_enemies_grid()
 # enemies shooting
 enemy_bullet_manager = EnemyBulletManager(enemies_list)
 enemies_bullets_list = enemy_bullet_manager.enemy_bullet_list
+
 
 loop_counter = 1
 while lives_counter.lives > 0 and len(enemies_list) > 0:
@@ -134,4 +128,10 @@ while lives_counter.lives > 0 and len(enemies_list) > 0:
     #         enemy.color('red')
     #         enemies_list.remove(enemy)
     loop_counter += 1
+
+lives_counter.clear()
+score_counter.game_over()
+gameover=GameOver()
+
+
 window.exitonclick()
